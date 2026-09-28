@@ -1,0 +1,65 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Grid
+      Enabled: true
+      Cell Size: 0.25
+      Plane Cell Count: 24
+      Reference Frame: <Fixed Frame>
+    - Class: rviz_default_plugins/Map
+      Name: MapaLidar
+      Enabled: true
+      Topic:
+        Value: /cobertura/mapa_lidar
+        Durability Policy: Transient Local
+        Reliability Policy: Reliable
+      Alpha: 0.6
+      Color Scheme: map
+    - Class: rviz_default_plugins/MarkerArray
+      Name: CeldasMetrica
+      Enabled: true
+      Topic:
+        Value: /cobertura/celdas
+    - Class: rviz_default_plugins/Path
+      Name: Camino
+      Enabled: true
+      Topic:
+        Value: /cobertura/camino
+      Color: 255; 170; 0
+      Line Style: Billboards
+      Line Width: 0.02
+    - Class: rviz_default_plugins/LaserScan
+      Name: Scan
+      Enabled: true
+      Topic:
+        Value: /scan
+        Reliability Policy: Best Effort
+      Size (m): 0.03
+      Color Transformer: FlatColor
+      Color: 255; 0; 0
+    - Class: rviz_default_plugins/Odometry
+      Name: Odom
+      Enabled: true
+      Topic:
+        Value: /odom
+      Keep: 1
+      Shape:
+        Value: Arrow
+  Global Options:
+    Fixed Frame: map
+    Background Color: 48; 48; 48
+    Frame Rate: 15
+  Views:
+    Current:
+      Class: rviz_default_plugins/TopDownOrtho
+      Name: Current View
+      Scale: 110
+      X: 0
+      Y: 0
+Window Geometry:
+  Width: 1000
+  Height: 800

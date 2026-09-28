@@ -1,0 +1,51 @@
+# Parámetros de la misión. Todos los valores deben llevar punto decimal
+# (ROS 2 no convierte int -> double automáticamente).
+navegador_cobertura:
+  ros__parameters:
+    usar_twist_stamped: true   # Jazzy + turtlebot3_gazebo usan TwistStamped en /cmd_vel
+    retardo_inicio: 3.0        # s desde el primer scan
+    frecuencia_control: 10.0
+    usar_imu: true             # rumbo de la IMU (no patina) + traslación de las ruedas
+    # --- movimiento
+    v_max: 0.20
+    w_max: 1.2
+    acel_w: 2.5                # rad/s²: giros suaves = menos patinamiento
+    acel_v: 0.5
+    k_rumbo: 2.2
+    giro_en_lugar: 0.55
+    # --- seguridad (distancias medidas desde el LiDAR)
+    d_stop: 0.17
+    d_lento: 0.40
+    d_lateral: 0.12
+    cono_frontal: 0.45
+    # --- obstáculos móviles
+    # evitar_moviles lo fija el launch según obstaculos_moviles (no editar acá)
+    d_pared_movil: 0.15        # m: pistas pegadas a paredes firmes se ignoran
+    min_desp_movil: 0.08       # m: desplazamiento neto para confirmar un móvil
+    min_edad_movil: 0.5        # s: seguimiento mínimo antes de confirmarlo
+    w_max_deteccion: 0.5       # rad/s: girando más rápido no se detectan móviles
+    d_peligro: 0.42
+    horizonte: 3.0
+    v_escape: 0.18
+    t_calma: 1.0
+    t_evadir_max: 8.0
+    # --- planificación de cobertura
+    r_paso: 0.16               # clearance mínimo para transitar
+    r_objetivo: 0.16           # clearance mínimo del punto objetivo de una celda
+    r_repaso: 0.15             # fase final, celdas pegadas a paredes (0.0 = desactivar)
+    t_repaso_max: 60.0         # s: duración máxima del repaso
+    margen_celda: 0.03         # m: el punto objetivo queda al menos esto adentro de su celda
+    margen_repaso: 0.03
+    v_repaso: 0.10
+    tol_waypoint: 0.08
+    tol_objetivo: 0.06
+    t_sin_progreso: 6.0
+    t_recuperar: 1.5
+    t_mision_max: 1200.0
+    w_giro_inicial: 0.6
+
+monitor_cobertura:
+  ros__parameters:
+    carpeta_log: "/ros2_ws/src/resultados_cobertura"   # visible desde el host
+    radio_robot: 0.13          # m: el juez considera recorrible donde entra el cuerpo del robot
+    imprimir_matriz: true      # imprime la matriz del escenario con cada celda nueva
