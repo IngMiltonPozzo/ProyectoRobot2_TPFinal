@@ -1,7 +1,13 @@
-# tb3_cobertura — Desafío Gazebo ROS 2
+#Desafío Gazebo ROS 2
 
 **Proyecto de Robots II · PRIA** — Milton Pozzo  
 **Plataforma:** ROS 2 Jazzy · Gazebo Harmonic · TurtleBot3 Burger · escenario `turtlebot3_dqn_stage4`
+
+## Video de demostración
+
+▶ **[Ver el video de funcionamiento](https://drive.google.com/file/d/1mUG_Ewhf2dwaMcfdZRTcQRkf8U__s1j2/view?usp=sharing)**
+
+El video muestra una misión completa en Gazebo: el robot arranca en pausa, reconoce su entorno con un giro inicial y recorre el escenario de forma autónoma. En RViz se ve el mapa construido con el LiDAR y las celdas visitadas, y en la terminal la matriz de cobertura actualizándose en vivo hasta el cartel de "MISIÓN TERMINADA" con el resultado final.
 
 ## Resumen
 
@@ -35,7 +41,14 @@ El escenario descarga el modelo del piso desde Gazebo Fuel, así que la primera 
 
 ## 2. Compilación
 
-Copiar la carpeta `tb3_cobertura` dentro de `ros2_ws/src/` y, en una terminal del contenedor:
+Clonar el repositorio dentro de `ros2_ws/src/`, con el nombre del paquete como carpeta:
+
+```bash
+cd /ros2_ws/src
+git clone https://github.com/IngMiltonPozzo/ProyectoRobot2_TPFinal.git tb3_cobertura
+```
+
+Y compilar, en una terminal del contenedor:
 
 ```bash
 cd /ros2_ws
@@ -275,7 +288,7 @@ La comparación entre la tercera y la quinta versión resume el efecto de las co
 |---|---|
 | Código fuente | paquete `tb3_cobertura`: nodos, launch, configuración, RViz, simulador 2D y pruebas (§8) |
 | README de ejecución | este documento: dependencias (§1), compilación (§2), lanzamiento (§3) y arquitectura (§4) |
-| Video de demostración | ejecución en Gazebo con RViz y la matriz de cobertura en vivo, hasta el cartel de fin de misión |
+| Video de demostración | [video de funcionamiento](https://drive.google.com/file/d/1mUG_Ewhf2dwaMcfdZRTcQRkf8U__s1j2/view?usp=sharing): ejecución en Gazebo con RViz y la matriz de cobertura en vivo, hasta el cartel de fin de misión |
 
 ## 8. Estructura
 
